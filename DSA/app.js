@@ -94,3 +94,101 @@ const sortAscending = (arr) => {
 console.log(sortAscending([0, 1, 0, 2, 0, 0, 2])); // Output: [0, 0, 0, 0, 1, 2, 2]
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Move all negative numbers to beginning and positive to end with constant extra space
+// An array contains both positive and negative numbers in random order. Rearrange the array elements so that all negative numbers appear before all positive numbers.
+// Examples :
+
+// Input: -12, 11, -13, -5, 6, -7, 5, -3, -6
+// Output: -12 -13 -5 -7 -3 -6 11 6 5
+
+const sortNegativeAndPositive = (arr) => {
+  if (!Array.isArray(arr)) {
+    throw new Error("Invalid input type. Only arrays are supported.");
+  }
+
+  const result = [...arr].sort((a, b) => {
+    if (a < 0 && b >= 0) {
+      return -1;
+    } else if (a >= 0 && b < 0) {
+      return 1;
+    }
+
+    return a - b;
+  });
+
+  return result;
+};
+
+const arr = [5, -2, 10, -8, 0, -1, 3];
+console.log(sortNegativeAndPositive(arr));
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Union of two arrays
+// Given two arrays a[] and b[] of size n and m respectively. The task is to find the number of elements in the union between these two arrays.
+// Union of the two arrays can be defined as the set containing distinct elements from both the arrays. If there are repetitions, then only one occurrence of element should be printed in the union.
+
+// Note : Elements are not necessarily distinct.
+// Example 1:
+
+// Input:
+// 5 3
+// 1 2 3 4 5
+// 1 2 3
+// Output:
+// 5
+// Explanation:
+// 1, 2, 3, 4 and 5 are the
+// elements which comes in the union set
+// of both arrays. So count is 5.
+
+const unionOfArr = (arr1, arr2) => {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    throw new Error("Invalid input type. Only arrays are supported.");
+  }
+
+  let result = arr1.concat(arr2);
+  result = result.filter((el, index) => {
+    return result.indexOf(el) === index;
+  });
+
+  return result.length;
+};
+
+console.log(unionOfArr([1, 2, 2, 2, 3, 4], [1, 2, 3, 12]));
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Cyclically rotate an array by one
+// Given an array, rotate the array by one position in clock-wise direction.
+
+// Example 1:
+
+// Input:
+// N = 5
+// A[] = {1, 2, 3, 4, 5}
+// Output:
+// 5 1 2 3 4
+
+const cyclicallyRotate = (arr) => {
+  if (!Array.isArray(arr)) {
+    throw new Error("Invalid input type. Only arrays are supported.");
+  }
+
+  const lastEl = arr.pop();
+  arr.unshift(lastEl);
+  return arr;
+};
+
+console.log(cyclicallyRotate([1, 2, 3, 4, 5]));
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
