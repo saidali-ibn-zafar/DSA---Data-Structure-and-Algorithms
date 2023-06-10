@@ -123,6 +123,11 @@ const sortNegativeAndPositive = (arr) => {
 const arr = [5, -2, 10, -8, 0, -1, 3];
 console.log(sortNegativeAndPositive(arr));
 
+// or
+// function sortArr(arr){
+//   return arr.sort();
+// }
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // Union of two arrays
@@ -185,9 +190,58 @@ console.log(cyclicallyRotate([1, 2, 3, 4, 5]));
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+// Kadane's Algorithm
+// Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.
 
+// Input:
+// N = 5
+// Arr[] = {1,2,3,-2,5}
+// Output:
+// 9
+// Explanation:
+// Max subarray sum is 9
+// of elements (1, 2, 3, -2, 5) which
+// is a contiguous subarray.
+
+function kadaneAlgorithm(arr) {
+  let max_so_far = arr[0];
+  let max_ending_here = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    max_ending_here = Math.max(arr[i], arr[i] + max_ending_here);
+    max_so_far = Math.max(max_so_far, max_ending_here);
+  }
+
+  return max_so_far;
+}
+
+// Example usage:
+const arr = [1, 2, 3, -2, 5];
+const maxSum = kadaneAlgorithm(arr);
+console.log(maxSum); // Output: 9
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Find the Duplicate Number
+// Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+// There is only one repeated number in nums, return this repeated number.
+// You must solve the problem without modifying the array nums and uses only constant extra space.
+
+const findDuplicates = (arr) => {
+  arr.sort();
+  const duplicates = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1]) {
+      duplicates.push(arr[i]);
+    }
+  }
+  return duplicates;
+};
+
+const array = [1, 2, 3, 4, 2, 5, 3, 6, 4];
+const duplicateElements = findDuplicates(array);
+console.log(duplicateElements); // Output: [2, 3, 4]
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
