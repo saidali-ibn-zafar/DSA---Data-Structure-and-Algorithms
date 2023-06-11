@@ -145,7 +145,7 @@ function printPattern() {
 printPattern();
 
 // * * * * * * * * * * * * * * * * *
-// ex pattern10
+// ex pattern11
 
 function pattern() {
   for (let i = 0; i < 5; i++) {
@@ -159,3 +159,19 @@ function pattern() {
 pattern();
 
 // * * * * * * * * * * * * * * * * *
+
+function printPattern(rows) {
+  for (let i = 1; i <= rows; i++) {
+    let pattern = "";
+    for (let j = 1; j <= i; j++) {
+      if ((i + j) % 2 === 0) {
+        pattern += "1 ";
+      } else {
+        pattern += "0 ";
+      }
+    }
+    console.log(pattern);
+  }
+}
+
+printPattern(5);
