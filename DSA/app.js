@@ -245,6 +245,70 @@ console.log(duplicateElements); // Output: [2, 3, 4]
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+// Best Time to Buy and Sell Stock
+// Example 1:
+
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+const maxProfit = (prices) => {
+  let maxProfit = 0;
+  let minPrice = prices[0];
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] < minPrice) {
+      minPrice = prices[i];
+    } else if (prices[i] - minPrice > maxProfit) {
+      maxProfit = prices[i] - minPrice;
+    }
+  }
+
+  return maxProfit;
+};
+
+maxProfit([7, 4, 2, 1, 3, 5, 6]);
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Count pairs with given sum
+// Given an array of N integers, and an integer K, find the number of pairs of elements in the array whose sum is equal to K.
+
+function getPairsCount(arr, n, k) {
+  let count = 0;
+  let left = 0;
+  let right = n - 1;
+
+  // Sort the array in non-decreasing order
+  arr.sort((a, b) => a - b);
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === k) {
+      count++;
+      left++;
+      right--;
+    } else if (sum < k) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return count;
+}
+
+const arr = [1, 5, 7, 1];
+const n = arr.length;
+const k = 6;
+
+const pairsCount = getPairsCount(arr, n, k);
+console.log(pairsCount);
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
