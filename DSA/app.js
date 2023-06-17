@@ -307,6 +307,63 @@ const k = 6;
 const pairsCount = getPairsCount(arr, n, k);
 console.log(pairsCount);
 
+
+// // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Common elements
+
+// Given three arrays sorted in increasing order. Find the elements that are common in all three arrays.
+// Note: can you take care of the duplicates without using any additional Data Structure?
+
+// Example 1:
+
+// Input:
+// n1 = 6; A = {1, 5, 10, 20, 40, 80}
+// n2 = 5; B = {6, 7, 20, 80, 100}
+// n3 = 8; C = {3, 4, 15, 20, 30, 70, 80, 120}
+// Output: 20 80
+// Explanation: 20 and 80 are the only
+// common elements in A, B and C.
+
+const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const y = [0, 2, 24, 8, 76];
+const z = [8, 9, 2];
+
+const giveCommons = (arr1, arr2, arr3) => {
+  let result = arr1.filter((el) => arr2.includes(el) && arr3.includes(el));
+  return result;
+};
+
+console.log(giveCommons(x, y, z));
+
+// // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// Factorials of large numbers
+// Given an integer N, find its factorial. return a list of integers denoting the digits that make up the factorial of N.
+
+// Example 1:
+// Input: N = 5
+// Output: 120
+// Explanation : 5! = 1*2*3*4*5 = 120
+
+// Example 2:
+// Input: N = 10
+// Output: 3628800
+// Explanation :
+// 10! = 1*2*3*4*5*6*7*8*9*10 = 3628800
+
+const factorial = (N) => {
+  let explanationRes = "";
+  let res = 1;
+  for (let i = 1; i <= N; i++) {
+    explanationRes += (i === N ? `${i}` : `${i} * `);
+    res *= i;
+  }
+  return `${explanationRes} = ${res}`;
+};
+
+console.log(factorial(5));
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
