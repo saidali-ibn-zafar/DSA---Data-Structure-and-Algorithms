@@ -338,3 +338,45 @@ printPattern16(5);
 
 // * * * * * * * * * * * * * * * * *
 // ex pattern17
+
+function printAlphaHillPattern(rows) {
+  let pattern = "";
+  const alphabet = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+
+  for (let i = 0; i < rows; i++) {
+    let row = "";
+
+    row += " ".repeat(rows - i - 1);
+
+    for (let j = 0; j <= i; j++) {
+      row += alphabet.charAt(j);
+    }
+
+    for (let j = i - 1; j >= 0; j--) {
+      row += alphabet.charAt(j);
+    }
+
+    pattern += row + "\n";
+  }
+
+  return pattern;
+}
+
+console.log(printAlphaHillPattern(5));
+
+// * * * * * * * * * * * * * * * * *
+// ex pattern18
+
+function AlphaTrianglePattern(rows) {
+  let pattern = "";
+  const alphabet = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+  let row = alphabet.slice(0, rows);
+
+  for (let j = rows - 1; j >= 0; j--) {
+    pattern += row.slice(j, rows) + "\n";
+  }
+  return pattern;
+}
+
+console.log(AlphaTrianglePattern(5));
+
