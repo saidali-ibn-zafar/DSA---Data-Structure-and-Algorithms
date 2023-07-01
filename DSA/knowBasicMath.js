@@ -48,6 +48,43 @@ const isArmstrongNumber = (num) => {
 
 console.log(isArmstrongNumber(153));
 
+
+// Print all Divisors of a given Number
+const printAllDivisors = (num) => {
+  if (num <= 1 || num <= Math.pow(10, 3)) {
+    throw new Error("Wrong input!");
+  }
+  let res = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      res.push(i);
+    }
+  }
+  return res;
+};
+
+// console.log(printAllDivisors(-10));
+
+// = = = = =
+// Check if a number is prime or not
+const isPrime = (num) => {
+  if (num < 2) {
+    throw new Error(
+      "2 is the smallest prime number, so your input cannot be prime number!"
+    );
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(isPrime(2));
+
+// = = = = =
+
 // = = = = =
 
 // = = = = =
